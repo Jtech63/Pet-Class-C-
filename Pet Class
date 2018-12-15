@@ -1,0 +1,17 @@
+#Pet Class Setup
+
+{
+    class Pet_Class
+    {
+
+        public Pet_Class(string name, string type, decimal age) // create class 
+        {
+            Name = name;
+            Type = type;
+            Age = age;
+        }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public decimal Age { get; set; }
+    }
+}
