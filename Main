@@ -1,0 +1,36 @@
+#Main
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        Pet_Class pet;
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            string name = nameTextBox.Text; // assign name from name textbox
+            string type = typeTextBox.Text; // assign type from type textbox
+            decimal age = 0.0m;             // set age to 0
+            if (!string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(type) && decimal.TryParse(ageTextBox.Text, out age))
+                // make sure data entered is correct for all three boxes
+            {
+                pet = new Pet_Class(name, type, age);
+            }
+            else
+                MessageBox.Show("Invalid Data"); //display message for invalid data
+            try
+            {
+                outputLabel.Text = "Name: " + pet.Name + "\n" + //output to label
+                "Type: " + pet.Type + "\n" +
+                 "Age: " + pet.Age.ToString();
+
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Enter Pet Data First"); // message for if no data is entered before "Save" button is clicked
+            }
+           
+        }
+    }
+}
